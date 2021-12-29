@@ -1,71 +1,84 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:insurance_portal/auth/login.dart';
-import 'package:insurance_portal/constants/colors.dart';
+import 'package:insurance_portal/constants/theme_data.dart';
 import 'package:insurance_portal/providers/MenuController.dart';
+import 'package:insurance_portal/providers/dark_theme_provider.dart';
 import 'package:insurance_portal/screens/main/main_screen.dart';
+import 'package:insurance_portal/screens/user_state.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  DarkThemeProvider themeChangeProvider = DarkThemeProvider();
+
+  void getCurrentAppTheme() async {
+    themeChangeProvider.darkTheme =
+    await themeChangeProvider.darkThemePreferences.getTheme();
+  }
+
+  @override
+  void initState() {
+    getCurrentAppTheme();
+    super.initState();
+  }
+
+  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
   @override
   Widget build(BuildContext context) {
-    return AdaptiveTheme(
-      light: ThemeData.light().copyWith(
-        scaffoldBackgroundColor: creamColor,
-        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
-            .apply(bodyColor: Colors.black),
-        canvasColor: snowColor,
-      ),
-      dark: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: bgColor,
-        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
-            .apply(bodyColor: Colors.white),
-        canvasColor: secondaryColor,
-      ),
-      initial: AdaptiveThemeMode.light,
-      builder: (theme, darkTheme) => MaterialApp(
-        title: 'Home | HillenInsure',
-        theme: theme,
-        darkTheme: darkTheme,
-        debugShowCheckedModeBanner: false,
-        home: MultiProvider(
-          providers: [
-            ChangeNotifierProvider(
-              create: (context) => MenuController(),
-            ),
-          ],
-          child: LoginScreen(),
-        ),
-        //initialRoute: '/',
-        routes: {
-          //   '/': (ctx) => LandingPage(),
-          MainScreen.routeName: (ctx) => MainScreen(),
-        },
-      ),
-    );
-/*    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Admin Panel',
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: bgColor,
-        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
-            .apply(bodyColor: Colors.white),
-        canvasColor: secondaryColor,
-      ),
-      home: MultiProvider(
-        providers: [
-          ChangeNotifierProvider(
-            create: (context) => MenuController(),
-          ),
-        ],
-        child: MainScreen(),
-      ),
-    );*/
+    return FutureBuilder<Object>(
+        future: _initialization,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return MaterialApp(
+              home: Scaffold(
+                body: Center(
+                  child: CircularProgressIndicator(),
+                ),
+              ),
+            );
+          } else if (snapshot.hasError) {
+            MaterialApp(
+              home: Scaffold(
+                body: Center(
+                  child: Text('Error occured'),
+                ),
+              ),
+            );
+          }
+          return MultiProvider(
+              providers: [
+                ChangeNotifierProvider(create: (_) {
+                  return themeChangeProvider;
+                }),
+                ChangeNotifierProvider(
+                  create: (_) => MenuController(),
+                ),
+              ],
+              child: Consumer<DarkThemeProvider>(
+                  builder: (context, themeData, child) {
+                    return MaterialApp(
+                      title: 'Flutter Demo',
+                      theme:
+                      Styles.themeData(themeChangeProvider.darkTheme, context),
+                      home: UserState(),
+                      //initialRoute: '/',
+                      routes: {
+                        //   '/': (ctx) => LandingPage(),
+                        MainScreen.routeName: (ctx) => MainScreen(),
+                      },
+                    );
+                  }));
+        });
   }
 }
