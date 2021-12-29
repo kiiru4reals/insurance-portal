@@ -1,6 +1,7 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:insurance_portal/auth/login.dart';
 import 'package:insurance_portal/constants/colors.dart';
 import 'package:insurance_portal/providers/MenuController.dart';
 import 'package:insurance_portal/screens/main/main_screen.dart';
@@ -39,8 +40,13 @@ class MyApp extends StatelessWidget {
               create: (context) => MenuController(),
             ),
           ],
-          child: MainScreen(),
+          child: LoginScreen(),
         ),
+        //initialRoute: '/',
+        routes: {
+          //   '/': (ctx) => LandingPage(),
+          MainScreen.routeName: (ctx) => MainScreen(),
+        },
       ),
     );
 /*    return MaterialApp(
