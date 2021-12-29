@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:insurance_portal/constants/color.dart';
 
 import '../../../constants/colors.dart';
 
@@ -46,7 +47,7 @@ class Chart extends StatelessWidget {
 
 List<PieChartSectionData> paiChartSelectionDatas = [
   PieChartSectionData(
-    color: primaryColor,
+    color: ColorConsts.primaryColor,
     value: 25,
     showTitle: false,
     radius: 25,
@@ -70,7 +71,7 @@ List<PieChartSectionData> paiChartSelectionDatas = [
     radius: 16,
   ),
   PieChartSectionData(
-    color: primaryColor.withOpacity(0.1),
+    color: ColorConsts.primaryColor.withOpacity(0.1),
     value: 25,
     showTitle: false,
     radius: 13,
