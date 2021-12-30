@@ -1,4 +1,3 @@
-import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:insurance_portal/constants/theme_data.dart';
 import 'package:insurance_portal/providers/MenuController.dart';
 import 'package:insurance_portal/providers/dark_theme_provider.dart';

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:insurance_portal/models/MyFiles.dart';
 import 'package:insurance_portal/responsive.dart';
 
-import '../../../constants/colors.dart';
+import '../constants/colors.dart';
 import 'file_info_card.dart';
 
 class MyFiles extends StatelessWidget {

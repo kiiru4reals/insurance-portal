@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:insurance_portal/constants/color.dart';
 import 'package:insurance_portal/constants/colors.dart';
 import 'package:insurance_portal/providers/MenuController.dart';
 import 'package:insurance_portal/responsive.dart';
 import 'package:provider/provider.dart';
-
 
 class Header extends StatelessWidget {
   const Header({
@@ -27,7 +27,7 @@ class Header extends StatelessWidget {
           ),
         if (!Responsive.isMobile(context))
           Spacer(flex: Responsive.isDesktop(context) ? 2 : 1),
-        Expanded(child: SearchField()),
+        // Expanded(child: SearchField()),
         ProfileCard()
       ],
     );
@@ -54,9 +54,11 @@ class ProfileCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Image.asset(
-            "assets/images/profile_pic.png",
-            height: 38,
+          CircleAvatar(
+            radius: 25,
+            backgroundColor: ColorConsts.bgColor,
+            backgroundImage: NetworkImage(
+                'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'),
           ),
           if (!Responsive.isMobile(context))
             Padding(
@@ -64,14 +66,14 @@ class ProfileCard extends StatelessWidget {
                   const EdgeInsets.symmetric(horizontal: defaultPadding / 2),
               child: Text("Penny Hofstader"),
             ),
-          // Icon(Icons.keyboard_arrow_down),
+          Icon(Icons.keyboard_arrow_down),
         ],
       ),
     );
   }
 }
 
-class SearchField extends StatelessWidget {
+/*class SearchField extends StatelessWidget {
   const SearchField({
     Key? key,
   }) : super(key: key);
@@ -105,4 +107,4 @@ class SearchField extends StatelessWidget {
       ),
     );
   }
-}
+}*/

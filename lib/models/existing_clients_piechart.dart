@@ -2,7 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:insurance_portal/constants/color.dart';
 
-import '../../../constants/colors.dart';
+import '../constants/colors.dart';
 
 class Chart extends StatelessWidget {
   const Chart({
@@ -29,13 +29,12 @@ class Chart extends StatelessWidget {
               children: [
                 SizedBox(height: defaultPadding),
                 Text(
-                  "29.1",
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  "Total:"
+                ),
+                Text("186",style: Theme.of(context).textTheme.bodyText1!.copyWith(
                     fontWeight: FontWeight.bold,
                     fontSize: 30
-                  ),
-                ),
-                Text("of 128GB")
+                ),)
               ],
             ),
           ),
@@ -63,17 +62,5 @@ List<PieChartSectionData> paiChartSelectionDatas = [
     value: 10,
     showTitle: false,
     radius: 19,
-  ),
-  PieChartSectionData(
-    color: Color(0xFFEE2727),
-    value: 15,
-    showTitle: false,
-    radius: 16,
-  ),
-  PieChartSectionData(
-    color: ColorConsts.primaryColor.withOpacity(0.1),
-    value: 25,
-    showTitle: false,
-    radius: 13,
   ),
 ];

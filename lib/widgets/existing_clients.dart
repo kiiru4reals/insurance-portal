@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:fluttericon/font_awesome5_icons.dart';
 import 'package:insurance_portal/constants/colors.dart';
-import 'chart.dart';
-import 'storage_info_card.dart';
+import 'package:insurance_portal/models/existing_clients_piechart.dart';
+import 'package:insurance_portal/models/existing_clients_info_card.dart';
 
-class StarageDetails extends StatelessWidget {
-  const StarageDetails({
+class ExistingClients extends StatelessWidget {
+  const ExistingClients({
     Key? key,
   }) : super(key: key);
 
@@ -20,7 +21,7 @@ class StarageDetails extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Storage Details",
+            "Clients",
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w500,
@@ -29,28 +30,22 @@ class StarageDetails extends StatelessWidget {
           SizedBox(height: defaultPadding),
           Chart(),
           StorageInfoCard(
-            svgSrc: "assets/icons/Documents.svg",
-            title: "Documents Files",
-            amountOfFiles: "1.3GB",
-            numOfFiles: 1328,
+            icon: FontAwesome5.car_crash,
+            title: "Vehicle insurance",
+            amountOfFiles: "100",
+            numOfFiles: 78,
           ),
           StorageInfoCard(
-            svgSrc: "assets/icons/media.svg",
-            title: "Media Files",
-            amountOfFiles: "15.3GB",
-            numOfFiles: 1328,
+            icon: FontAwesome5.heartbeat,
+            title: "Life insurance",
+            amountOfFiles: "43",
+            numOfFiles: 43,
           ),
           StorageInfoCard(
-            svgSrc: "assets/icons/folder.svg",
-            title: "Other Files",
-            amountOfFiles: "1.3GB",
-            numOfFiles: 1328,
-          ),
-          StorageInfoCard(
-            svgSrc: "assets/icons/unknown.svg",
-            title: "Unknown",
-            amountOfFiles: "1.3GB",
-            numOfFiles: 140,
+            icon: Icons.sailing,
+            title: "Marine Insurance",
+            amountOfFiles: "43",
+            numOfFiles: 43,
           ),
         ],
       ),

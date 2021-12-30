@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:insurance_portal/constants/colors.dart';
 import 'package:insurance_portal/models/MyFiles.dart';
 import 'package:insurance_portal/responsive.dart';
-import 'package:insurance_portal/screens/dashboard/components/file_info_card.dart';
+import 'package:insurance_portal/widgets/file_info_card.dart';
 
-class MyFiles extends StatelessWidget {
-  const MyFiles({
+class ProspectiveClients extends StatelessWidget {
+  const ProspectiveClients({
     Key? key,
   }) : super(key: key);
 
@@ -18,10 +18,10 @@ class MyFiles extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "My Files",
+              "Prospective Clients",
               style: Theme.of(context).textTheme.subtitle1,
             ),
-            ElevatedButton.icon(
+/*            ElevatedButton.icon(
               style: TextButton.styleFrom(
                 padding: EdgeInsets.symmetric(
                   horizontal: defaultPadding * 1.5,
@@ -32,7 +32,7 @@ class MyFiles extends StatelessWidget {
               onPressed: () {},
               icon: Icon(Icons.add),
               label: Text("Add New"),
-            ),
+            ),*/
           ],
         ),
         SizedBox(height: defaultPadding),
@@ -54,7 +54,7 @@ class MyFiles extends StatelessWidget {
 class FileInfoCardGridView extends StatelessWidget {
   const FileInfoCardGridView({
     Key? key,
-    this.crossAxisCount = 4,
+    this.crossAxisCount = 3,
     this.childAspectRatio = 1,
   }) : super(key: key);
 
