@@ -1,10 +1,12 @@
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
+import 'package:insurance_portal/constants/color.dart';
 import 'package:insurance_portal/models/vehicle_prospective_models.dart';
 import 'package:insurance_portal/widgets/scrollable_widget.dart';
 
 class VehicleProspective extends StatefulWidget {
   static const routeName = "/VehicleProspective";
+
   @override
   _VehicleProspectiveState createState() => _VehicleProspectiveState();
 }
@@ -13,8 +15,8 @@ class _VehicleProspectiveState extends State<VehicleProspective> {
   late List<Clients> users;
   int? sortColumnIndex;
   bool isAscending = false;
-
   @override
+
   void initState() {
     super.initState();
 
@@ -23,18 +25,26 @@ class _VehicleProspectiveState extends State<VehicleProspective> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    body: ScrollableWidget(child: buildDataTable()),
+    appBar: AppBar(
+      centerTitle: true,
+      backgroundColor: ColorConsts.bgColor,
+      title: Text("Vehicle insurance prospective clients"),
+    ),
+    body: Padding(
+      padding: const EdgeInsets.all(24.0),
+      child: ScrollableWidget(child: buildDataTable()),
+    ),
   );
-
   Widget buildDataTable() {
     final columns = ['First Name', 'Last Name', 'Age'];
-
-    return DataTable2(
-      sortAscending: isAscending,
-      sortColumnIndex: sortColumnIndex,
-
-      columns: getColumns(columns),
-      rows: getRows(users),
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      child: DataTable(
+        sortAscending: isAscending,
+        sortColumnIndex: sortColumnIndex,
+        columns: getColumns(columns),
+        rows: getRows(users),
+      ),
     );
   }
 
