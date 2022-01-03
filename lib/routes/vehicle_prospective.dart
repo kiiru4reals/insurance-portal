@@ -15,8 +15,8 @@ class _VehicleProspectiveState extends State<VehicleProspective> {
   late List<Clients> users;
   int? sortColumnIndex;
   bool isAscending = false;
-  @override
 
+  @override
   void initState() {
     super.initState();
 
@@ -25,20 +25,20 @@ class _VehicleProspectiveState extends State<VehicleProspective> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(
-      centerTitle: true,
-      backgroundColor: ColorConsts.bgColor,
-      title: Text("Vehicle insurance prospective clients"),
-    ),
-    body: Padding(
-      padding: const EdgeInsets.all(24.0),
-      child: ScrollableWidget(child: buildDataTable()),
-    ),
-  );
+        appBar: AppBar(
+          centerTitle: true,
+          backgroundColor: ColorConsts.bgColor,
+          title: Text("Vehicle insurance prospective clients"),
+        ),
+        body: Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: ScrollableWidget(child: buildDataTable())),
+      );
+
   Widget buildDataTable() {
     final columns = ['First Name', 'Last Name', 'Age'];
     return Container(
-      width: MediaQuery.of(context).size.width,
+      width: MediaQuery.of(context).size.width *.96,
       child: DataTable(
         sortAscending: isAscending,
         sortColumnIndex: sortColumnIndex,
@@ -50,16 +50,16 @@ class _VehicleProspectiveState extends State<VehicleProspective> {
 
   List<DataColumn> getColumns(List<String> columns) => columns
       .map((String column) => DataColumn(
-    label: Text(column),
-    onSort: onSort,
-  ))
+            label: Text(column),
+            onSort: onSort,
+          ))
       .toList();
 
   List<DataRow> getRows(List<Clients> users) => users.map((Clients user) {
-    final cells = [user.firstName, user.lastName, user.age];
+        final cells = [user.firstName, user.lastName, user.age];
 
-    return DataRow(cells: getCells(cells));
-  }).toList();
+        return DataRow(cells: getCells(cells));
+      }).toList();
 
   List<DataCell> getCells(List<dynamic> cells) =>
       cells.map((data) => DataCell(Text('$data'))).toList();
