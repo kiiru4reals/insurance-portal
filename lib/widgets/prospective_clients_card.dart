@@ -1,13 +1,11 @@
-import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:insurance_portal/constants/color.dart';
 import 'package:insurance_portal/models/MyFiles.dart';
 import 'package:insurance_portal/responsive.dart';
-
-import '../constants/colors.dart';
 import 'file_info_card.dart';
 
-class MyFiles extends StatelessWidget {
-  const MyFiles({
+class ProspectiveClients extends StatelessWidget {
+  const ProspectiveClients({
     Key? key,
   }) : super(key: key);
 
@@ -26,7 +24,7 @@ class MyFiles extends StatelessWidget {
             Row(
               children: [
                 //TODO: Move this to settings
-                ElevatedButton.icon(
+                /*ElevatedButton.icon(
                   style: TextButton.styleFrom(
                     padding: EdgeInsets.symmetric(
                       horizontal: defaultPadding * 1.5,
@@ -39,7 +37,7 @@ class MyFiles extends StatelessWidget {
                   },
                   icon: Icon(Icons.ac_unit_sharp),
                   label: Text("Change Theme"),
-                ),
+                ),*/
                 SizedBox(
                   width: 20,
                 ),
@@ -78,7 +76,7 @@ class MyFiles extends StatelessWidget {
 class FileInfoCardGridView extends StatelessWidget {
   const FileInfoCardGridView({
     Key? key,
-    this.crossAxisCount = 4,
+    this.crossAxisCount = 3,
     this.childAspectRatio = 1,
   }) : super(key: key);
 
@@ -87,17 +85,20 @@ class FileInfoCardGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
+    return GridView(
       physics: NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      itemCount: demoMyFiles.length,
+      // itemCount: demoMyFiles.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: crossAxisCount,
         crossAxisSpacing: defaultPadding,
         mainAxisSpacing: defaultPadding,
         childAspectRatio: childAspectRatio,
       ),
-      itemBuilder: (context, index) => FileInfoCard(info: demoMyFiles[index]),
+      children:[
+        Card()
+      ]
+      // itemBuilder: (context, index) => FileInfoCard(info: demoMyFiles[index]),
     );
   }
 }
