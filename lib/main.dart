@@ -68,7 +68,7 @@ class _MyAppState extends State<MyApp> {
               child: Consumer<DarkThemeProvider>(
                   builder: (context, themeData, child) {
                     return MaterialApp(
-                      title: 'Flutter Demo',
+                      title: 'HillenInsure | School Project',
                       theme:
                       Styles.themeData(themeChangeProvider.darkTheme, context),
                       home: UserState(),
