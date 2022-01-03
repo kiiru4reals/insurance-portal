@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:insurance_portal/constants/colors.dart';
+import 'package:insurance_portal/constants/color.dart';
 import 'package:insurance_portal/responsive.dart';
 import 'package:insurance_portal/widgets/header.dart';
-import 'package:insurance_portal/screens/dashboard/components/recent_files.dart';
 import 'package:insurance_portal/widgets/existing_clients.dart';
-import 'package:insurance_portal/widgets/prospective_clients.dart';
+import 'package:insurance_portal/widgets/prospective_clients_card.dart';
 
 
 class DashboardScreen extends StatelessWidget {

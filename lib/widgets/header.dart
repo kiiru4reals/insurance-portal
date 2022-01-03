@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:insurance_portal/constants/color.dart';
-import 'package:insurance_portal/constants/colors.dart';
 import 'package:insurance_portal/providers/MenuController.dart';
 import 'package:insurance_portal/responsive.dart';
 import 'package:provider/provider.dart';

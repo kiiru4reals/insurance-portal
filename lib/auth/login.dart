@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:insurance_portal/constants/color.dart';
-import 'package:insurance_portal/screens/main/main_screen.dart';
+import 'package:insurance_portal/screens/main_screen.dart';
 import 'package:insurance_portal/services/global_methods.dart';
 
 class LoginScreen extends StatefulWidget {
