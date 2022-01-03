@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:insurance_portal/constants/color.dart';
 import 'package:insurance_portal/models/MyFiles.dart';
 import 'package:insurance_portal/responsive.dart';
+import 'package:insurance_portal/routes/vehicle_prospective.dart';
+
 import 'file_info_card.dart';
 
 class ProspectiveClients extends StatelessWidget {
@@ -18,26 +20,11 @@ class ProspectiveClients extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "My Files",
+              "Prospective Clients",
               style: Theme.of(context).textTheme.subtitle1,
             ),
             Row(
               children: [
-                //TODO: Move this to settings
-                /*ElevatedButton.icon(
-                  style: TextButton.styleFrom(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: defaultPadding * 1.5,
-                      vertical: defaultPadding /
-                          (Responsive.isMobile(context) ? 2 : 1),
-                    ),
-                  ),
-                  onPressed: () {
-                    AdaptiveTheme.of(context).toggleThemeMode();
-                  },
-                  icon: Icon(Icons.ac_unit_sharp),
-                  label: Text("Change Theme"),
-                ),*/
                 SizedBox(
                   width: 20,
                 ),
@@ -95,9 +82,101 @@ class FileInfoCardGridView extends StatelessWidget {
         mainAxisSpacing: defaultPadding,
         childAspectRatio: childAspectRatio,
       ),
-      children:[
-        Card()
-      ]
+      children: [
+        Card(
+          clipBehavior: Clip.antiAlias,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(24),
+          ),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Ink.image(
+                image: NetworkImage(
+                  'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1327&q=80',
+                ),
+                // colorFilter: ColorFilters.greyscale,
+                child: InkWell(
+                  hoverColor: Colors.transparent,
+                  onTap: () => Navigator.pushNamed(context, VehicleProspective.routeName),
+                ),
+                height: 240,
+                fit: BoxFit.cover,
+              ),
+              Text(
+                'Vehicle insurance',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ],
+          ),
+        ),
+        Card(
+          clipBehavior: Clip.antiAlias,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(24),
+          ),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Ink.image(
+                image: NetworkImage(
+                  'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1327&q=80',
+                ),
+                // colorFilter: ColorFilters.greyscale,
+                child: InkWell(
+                  hoverColor: Colors.transparent,
+                  onTap: () {},
+                ),
+                height: 240,
+                fit: BoxFit.cover,
+              ),
+              Text(
+                'Marine Insurance',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ],
+          ),
+        ),
+        Card(
+          clipBehavior: Clip.antiAlias,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(24),
+          ),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Ink.image(
+                image: NetworkImage(
+                  'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1327&q=80',
+                ),
+                // colorFilter: ColorFilters.greyscale,
+                child: InkWell(
+                  hoverColor: Colors.transparent,
+                  // onTap: () => Navigator.pushNamed(context, VehicleProspective.routeName),
+                ),
+                height: 240,
+                fit: BoxFit.cover,
+              ),
+              Text(
+                'Life insurance',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
       // itemBuilder: (context, index) => FileInfoCard(info: demoMyFiles[index]),
     );
   }
