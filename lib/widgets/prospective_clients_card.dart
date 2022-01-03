@@ -129,7 +129,7 @@ class FileInfoCardGridView extends StatelessWidget {
                 // colorFilter: ColorFilters.greyscale,
                 child: InkWell(
                   hoverColor: Colors.transparent,
-                  onTap: () {},
+                  onTap: () => Navigator.pushNamed(context, VehicleProspective.routeName),
                 ),
                 height: 240,
                 fit: BoxFit.cover,
@@ -160,7 +160,7 @@ class FileInfoCardGridView extends StatelessWidget {
                 // colorFilter: ColorFilters.greyscale,
                 child: InkWell(
                   hoverColor: Colors.transparent,
-                  // onTap: () => Navigator.pushNamed(context, VehicleProspective.routeName),
+                  onTap: () => Navigator.pushNamed(context, VehicleProspective.routeName),
                 ),
                 height: 240,
                 fit: BoxFit.cover,
