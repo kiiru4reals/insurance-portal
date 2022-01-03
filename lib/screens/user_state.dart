@@ -1,5 +1,5 @@
 import 'package:insurance_portal/auth/login.dart';
-import 'package:insurance_portal/screens/main/main_screen.dart';
+import 'package:insurance_portal/screens/main_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:insurance_portal/constants/colors.dart';
+import 'package:insurance_portal/constants/color.dart';
 import 'package:insurance_portal/models/MyFiles.dart';
 
 
@@ -80,7 +80,7 @@ class FileInfoCard extends StatelessWidget {
 class ProgressLine extends StatelessWidget {
   const ProgressLine({
     Key? key,
-    this.color = primaryColor,
+    this.color = primaryColorWeb,
     required this.percentage,
   }) : super(key: key);
 

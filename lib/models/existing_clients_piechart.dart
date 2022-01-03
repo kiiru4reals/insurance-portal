@@ -2,7 +2,6 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:insurance_portal/constants/color.dart';
 
-import '../constants/colors.dart';
 
 class Chart extends StatelessWidget {
   const Chart({

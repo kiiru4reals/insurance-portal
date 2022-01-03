@@ -1,7 +1,7 @@
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:insurance_portal/constants/colors.dart';
+import 'package:insurance_portal/constants/color.dart';
 import 'package:insurance_portal/models/RecentFile.dart';
 
 class RecentFiles extends StatelessWidget {

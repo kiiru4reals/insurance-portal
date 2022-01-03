@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttericon/font_awesome5_icons.dart';
-import 'package:insurance_portal/constants/colors.dart';
+import 'package:insurance_portal/constants/color.dart';
 import 'package:insurance_portal/models/existing_clients_piechart.dart';
 import 'package:insurance_portal/models/existing_clients_info_card.dart';
 

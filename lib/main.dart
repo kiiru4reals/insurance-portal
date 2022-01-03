@@ -1,7 +1,8 @@
 import 'package:insurance_portal/constants/theme_data.dart';
 import 'package:insurance_portal/providers/MenuController.dart';
 import 'package:insurance_portal/providers/dark_theme_provider.dart';
-import 'package:insurance_portal/screens/main/main_screen.dart';
+import 'package:insurance_portal/routes/vehicle_prospective.dart';
+import 'package:insurance_portal/screens/main_screen.dart';
 import 'package:insurance_portal/screens/user_state.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -75,6 +76,7 @@ class _MyAppState extends State<MyApp> {
                       routes: {
                         //   '/': (ctx) => LandingPage(),
                         MainScreen.routeName: (ctx) => MainScreen(),
+                        VehicleProspective.routeName: (ctx) => VehicleProspective(),
                       },
                     );
                   }));

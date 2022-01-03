@@ -1,13 +1,13 @@
-import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:insurance_portal/constants/color.dart';
 import 'package:insurance_portal/models/MyFiles.dart';
 import 'package:insurance_portal/responsive.dart';
+import 'package:insurance_portal/routes/vehicle_prospective.dart';
 
-import '../constants/colors.dart';
 import 'file_info_card.dart';
 
-class MyFiles extends StatelessWidget {
-  const MyFiles({
+class ProspectiveClients extends StatelessWidget {
+  const ProspectiveClients({
     Key? key,
   }) : super(key: key);
 
@@ -20,26 +20,11 @@ class MyFiles extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "My Files",
+              "Prospective Clients",
               style: Theme.of(context).textTheme.subtitle1,
             ),
             Row(
               children: [
-                //TODO: Move this to settings
-                ElevatedButton.icon(
-                  style: TextButton.styleFrom(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: defaultPadding * 1.5,
-                      vertical: defaultPadding /
-                          (Responsive.isMobile(context) ? 2 : 1),
-                    ),
-                  ),
-                  onPressed: () {
-                    AdaptiveTheme.of(context).toggleThemeMode();
-                  },
-                  icon: Icon(Icons.ac_unit_sharp),
-                  label: Text("Change Theme"),
-                ),
                 SizedBox(
                   width: 20,
                 ),
@@ -78,7 +63,7 @@ class MyFiles extends StatelessWidget {
 class FileInfoCardGridView extends StatelessWidget {
   const FileInfoCardGridView({
     Key? key,
-    this.crossAxisCount = 4,
+    this.crossAxisCount = 3,
     this.childAspectRatio = 1,
   }) : super(key: key);
 
@@ -87,17 +72,112 @@ class FileInfoCardGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
+    return GridView(
       physics: NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      itemCount: demoMyFiles.length,
+      // itemCount: demoMyFiles.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: crossAxisCount,
         crossAxisSpacing: defaultPadding,
         mainAxisSpacing: defaultPadding,
         childAspectRatio: childAspectRatio,
       ),
-      itemBuilder: (context, index) => FileInfoCard(info: demoMyFiles[index]),
+      children: [
+        Card(
+          clipBehavior: Clip.antiAlias,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(24),
+          ),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Ink.image(
+                image: NetworkImage(
+                  'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1327&q=80',
+                ),
+                // colorFilter: ColorFilters.greyscale,
+                child: InkWell(
+                  hoverColor: Colors.transparent,
+                  onTap: () => Navigator.pushNamed(context, VehicleProspective.routeName),
+                ),
+                height: 240,
+                fit: BoxFit.cover,
+              ),
+              Text(
+                'Vehicle insurance',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ],
+          ),
+        ),
+        Card(
+          clipBehavior: Clip.antiAlias,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(24),
+          ),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Ink.image(
+                image: NetworkImage(
+                  'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1327&q=80',
+                ),
+                // colorFilter: ColorFilters.greyscale,
+                child: InkWell(
+                  hoverColor: Colors.transparent,
+                  onTap: () {},
+                ),
+                height: 240,
+                fit: BoxFit.cover,
+              ),
+              Text(
+                'Marine Insurance',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ],
+          ),
+        ),
+        Card(
+          clipBehavior: Clip.antiAlias,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(24),
+          ),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Ink.image(
+                image: NetworkImage(
+                  'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1327&q=80',
+                ),
+                // colorFilter: ColorFilters.greyscale,
+                child: InkWell(
+                  hoverColor: Colors.transparent,
+                  // onTap: () => Navigator.pushNamed(context, VehicleProspective.routeName),
+                ),
+                height: 240,
+                fit: BoxFit.cover,
+              ),
+              Text(
+                'Life insurance',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+      // itemBuilder: (context, index) => FileInfoCard(info: demoMyFiles[index]),
     );
   }
 }
