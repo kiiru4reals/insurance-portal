@@ -17,6 +17,11 @@ class ColorConsts{
   static Color starterColor = Color(0xFF8E24AA); //purple 600
   static Color endColor = Color(0xFFCE93D8);
   static Color marine = Color(0xFFA4CDFF);
+  static Color gradiendFStart = Color(0xFFE040FB); //purpleaccent 100
+  static Color gradiendFEnd = Color(0xFFE1BEE7);
+  static Color gradiendLEnd = Color(0xFFE91E63); //pink
+  static Color gradiendLStart = Color(0xFF9C27B0);
+  static Color title = HexColor("000000");
 
 
 }

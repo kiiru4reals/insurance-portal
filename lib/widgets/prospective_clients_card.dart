@@ -23,25 +23,7 @@ class ProspectiveClients extends StatelessWidget {
               "Prospective Clients",
               style: Theme.of(context).textTheme.subtitle1,
             ),
-            Row(
-              children: [
-                SizedBox(
-                  width: 20,
-                ),
-                ElevatedButton.icon(
-                  style: TextButton.styleFrom(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: defaultPadding * 1.5,
-                      vertical: defaultPadding /
-                          (Responsive.isMobile(context) ? 2 : 1),
-                    ),
-                  ),
-                  onPressed: () {},
-                  icon: Icon(Icons.add),
-                  label: Text("Add New"),
-                ),
-              ],
-            ),
+
           ],
         ),
         SizedBox(height: defaultPadding),
@@ -129,7 +111,7 @@ class FileInfoCardGridView extends StatelessWidget {
                 // colorFilter: ColorFilters.greyscale,
                 child: InkWell(
                   hoverColor: Colors.transparent,
-                  onTap: () {},
+                  onTap: () => Navigator.pushNamed(context, VehicleProspective.routeName),
                 ),
                 height: 240,
                 fit: BoxFit.cover,
@@ -160,7 +142,7 @@ class FileInfoCardGridView extends StatelessWidget {
                 // colorFilter: ColorFilters.greyscale,
                 child: InkWell(
                   hoverColor: Colors.transparent,
-                  // onTap: () => Navigator.pushNamed(context, VehicleProspective.routeName),
+                  onTap: () => Navigator.pushNamed(context, VehicleProspective.routeName),
                 ),
                 height: 240,
                 fit: BoxFit.cover,
