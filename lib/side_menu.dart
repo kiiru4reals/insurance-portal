@@ -69,7 +69,6 @@ class SideMenu extends StatelessWidget {
           DrawerListTile(
             title: "Settings",
             icon: Icons.settings_sharp,
-            // svgSrc: "assets/icons/menu_setting.svg",
             press: () {},
           ),
         ],

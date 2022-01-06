@@ -38,9 +38,15 @@ dependencies:
   flutter_svg: ^1.0.0
   fl_chart: ^0.40.6
   provider: ^6.0.1
-  adaptive_theme: ^2.3.0
   data_table_2: ^2.2.0
   list_tile_switch: ^1.0.0
+  fluttericon: ^2.0.0
+  firebase_core: ^1.10.6
+  firebase_auth: ^3.3.4
+  shared_preferences: ^2.0.11
+  cloud_firestore: ^3.1.5
+  firebase_storage: ^10.2.4
+  image_picker: ^0.8.4+4
 
 dev_dependencies:
   flutter_test:

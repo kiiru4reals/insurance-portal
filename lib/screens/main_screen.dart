@@ -4,9 +4,10 @@ import 'package:insurance_portal/responsive.dart';
 import 'package:insurance_portal/screens/dashboard/dashboard_screen.dart';
 import 'package:provider/provider.dart';
 
-import '../../side_menu.dart';
+import '../side_menu.dart';
 
 class MainScreen extends StatelessWidget {
+  static const routeName = "/MainScreen";
   @override
   Widget build(BuildContext context) {
     return Scaffold(

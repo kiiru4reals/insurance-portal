@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:insurance_portal/constants/colors.dart';
+import 'package:insurance_portal/constants/color.dart';
 import 'package:insurance_portal/responsive.dart';
-import 'package:insurance_portal/screens/dashboard/components/header.dart';
-import 'package:insurance_portal/screens/dashboard/components/my_files.dart';
-import 'package:insurance_portal/screens/dashboard/components/recent_files.dart';
-import 'package:insurance_portal/screens/dashboard/components/storage_details.dart';
+import 'package:insurance_portal/widgets/header.dart';
+import 'package:insurance_portal/widgets/existing_clients.dart';
+import 'package:insurance_portal/widgets/prospective_clients_card.dart';
 
 
 class DashboardScreen extends StatelessWidget {
@@ -24,12 +23,12 @@ class DashboardScreen extends StatelessWidget {
                   flex: 5,
                   child: Column(
                     children: [
-                      MyFiles(),
+                      ProspectiveClients(),
                       SizedBox(height: defaultPadding),
-                      RecentFiles(),
+                      // RecentFiles(),
                       if (Responsive.isMobile(context))
                         SizedBox(height: defaultPadding),
-                      if (Responsive.isMobile(context)) StarageDetails(),
+                      if (Responsive.isMobile(context)) ExistingClients(),
                     ],
                   ),
                 ),
@@ -39,7 +38,7 @@ class DashboardScreen extends StatelessWidget {
                 if (!Responsive.isMobile(context))
                   Expanded(
                     flex: 2,
-                    child: StarageDetails(),
+                    child: ExistingClients(),
                   ),
               ],
             )

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:insurance_portal/constants/color.dart';
 import 'package:insurance_portal/models/MyFiles.dart';
 
-import '../../../constants/colors.dart';
 
 class FileInfoCard extends StatelessWidget {
   const FileInfoCard({
@@ -35,9 +34,10 @@ class FileInfoCard extends StatelessWidget {
                   color: info.color!.withOpacity(0.1),
                   borderRadius: const BorderRadius.all(Radius.circular(10)),
                 ),
-                child: SvgPicture.asset(
-                  info.svgSrc!,
+                child: Icon(
+                  info.icon!,
                   color: info.color,
+                  size: 20,
                 ),
               ),
               Icon(Icons.more_vert, color: Theme.of(context).backgroundColor)
@@ -45,6 +45,8 @@ class FileInfoCard extends StatelessWidget {
           ),
           Text(
             info.title!,
+            style: TextStyle(fontWeight: FontWeight.w600,
+            fontSize: 20),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
@@ -78,7 +80,7 @@ class FileInfoCard extends StatelessWidget {
 class ProgressLine extends StatelessWidget {
   const ProgressLine({
     Key? key,
-    this.color = primaryColor,
+    this.color = primaryColorWeb,
     required this.percentage,
   }) : super(key: key);
 

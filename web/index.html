@@ -33,6 +33,36 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+<!-- Add for Firebase Storage: https://pub.dev/packages/firebase_storage -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+<!-- Add for Cloud Firestore: https://pub.dev/packages/cloud_firestore -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+<!-- Add for Firebase Auth: https://pub.dev/packages/firebase_auth -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script>
+
+<script>window.flutterfire_web_sdk_version = '8.10.0';</script>
+
+<script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyAL-b8iBSzt1mNZV8iCSyeT5ItKczh_lEA",
+      authDomain: "insurance-portal-a5b39.firebaseapp.com",
+      projectId: "insurance-portal-a5b39",
+      storageBucket: "insurance-portal-a5b39.appspot.com",
+      messagingSenderId: "521622384810",
+      appId: "1:521622384810:web:2c3eb93a8e80494fe2a0d3",
+      measurementId: "G-4DXZDG8PJB"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+  </script>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
