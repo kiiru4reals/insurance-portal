@@ -196,7 +196,9 @@ class _NewAdminUserState extends State<NewAdminUser> {
                                   fit: StackFit.expand,
                                   children: [
                                     CircleAvatar(
-                                      backgroundImage: NetworkImage("https://t3.ftcdn.net/jpg/01/83/55/76/240_F_183557656_DRcvOesmfDl5BIyhPKrcWANFKy2964i9.jpg"),
+                                      backgroundImage: _pickedImage == null
+                                          ? null
+                                          : FileImage(_pickedImage!),
                                     ),
                                     Positioned(
                                         right: -16,
@@ -210,7 +212,75 @@ class _NewAdminUserState extends State<NewAdminUser> {
                                                 side: BorderSide(color: Colors.white),
                                               ),
                                               color: Color(0xFFF5F6F9),
-                                              onPressed: () {},
+                                              onPressed: () {
+                                                showDialog(
+                                                    context: context,
+                                                    builder: (BuildContext context) {
+                                                      return AlertDialog(
+                                                        title: Text(
+                                                          'Choose option',
+                                                          style: TextStyle(
+                                                              fontWeight: FontWeight.w600,
+                                                              color: ColorConsts.gradiendLStart),
+                                                        ),
+                                                        content: SingleChildScrollView(
+                                                          child: ListBody(
+                                                            children: [
+                                                              InkWell(
+                                                                onTap: _pickImageGallery,
+                                                                splashColor: Colors.purpleAccent,
+                                                                child: Row(
+                                                                  children: [
+                                                                    Padding(
+                                                                      padding:
+                                                                      const EdgeInsets.all(8.0),
+                                                                      child: Icon(
+                                                                        Icons.image,
+                                                                        color: Colors.purpleAccent,
+                                                                      ),
+                                                                    ),
+                                                                    Text(
+                                                                      'Gallery',
+                                                                      style: TextStyle(
+                                                                          fontSize: 18,
+                                                                          fontWeight:
+                                                                          FontWeight.w500,
+                                                                          color:
+                                                                          ColorConsts.title),
+                                                                    )
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                              InkWell(
+                                                                onTap: _remove,
+                                                                splashColor: Colors.purpleAccent,
+                                                                child: Row(
+                                                                  children: [
+                                                                    Padding(
+                                                                      padding:
+                                                                      const EdgeInsets.all(8.0),
+                                                                      child: Icon(
+                                                                        Icons.remove_circle,
+                                                                        color: Colors.red,
+                                                                      ),
+                                                                    ),
+                                                                    Text(
+                                                                      'Remove',
+                                                                      style: TextStyle(
+                                                                          fontSize: 18,
+                                                                          fontWeight:
+                                                                          FontWeight.w500,
+                                                                          color: Colors.red),
+                                                                    )
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      );
+                                                    });
+                                              },
                                               // TODO: Icon not centered.
                                               child: Center(child: Icon(Icons.camera_alt_outlined)),
                                             )))
