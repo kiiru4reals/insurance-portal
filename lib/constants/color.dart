@@ -21,7 +21,7 @@ class ColorConsts{
   static Color gradiendFEnd = Color(0xFFE1BEE7);
   static Color gradiendLEnd = Color(0xFFE91E63); //pink
   static Color gradiendLStart = Color(0xFF9C27B0);
-  static Color title = HexColor("FFFFFF");
+  static Color title = HexColor("000000");
 
 
 }
