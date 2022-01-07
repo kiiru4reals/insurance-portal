@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:insurance_portal/constants/color.dart';
 import 'package:insurance_portal/models/user_model.dart';
 import 'package:insurance_portal/screens/edit_profile.dart';
 import 'package:insurance_portal/side_menu.dart';
@@ -21,7 +22,7 @@ class _UserInfoState extends State<UserInfo> {
             centerTitle: true,
             title: Text("User Information"),
             // leading: BackButton(),
-            backgroundColor: Colors.transparent,
+            backgroundColor: ColorConsts.bgColor,
             elevation: 0,
           ),
           drawer: SideMenu(),
