@@ -46,10 +46,20 @@ class _VehicleProspectiveState extends State<VehicleProspective> {
             ),
           ],
         ),
-        body: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: ScrollableWidget(child: buildDataTable()),
+        body:  
+        ScrollableWidget(
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: buildDataTable(),
+                ),
+              ],
+            ),
           ),
+        ),
       );
 
   Widget buildDataTable() {
