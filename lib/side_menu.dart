@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insurance_portal/constants/color.dart';
 import 'package:insurance_portal/providers/dark_theme_provider.dart';
 import 'package:insurance_portal/screens/main_screen.dart';
 import 'package:insurance_portal/screens/underwriters.dart';
@@ -25,6 +26,7 @@ class _SideMenuState extends State<SideMenu> {
 
     return Drawer(
       child: Material(
+        color: ColorConsts.bgColor,
         // color: Color.fromRGBO(50, 75, 205, 1),
         child: ListView(
           children: <Widget>[
@@ -66,8 +68,9 @@ class _SideMenuState extends State<SideMenu> {
                   ),
                   const SizedBox(height: 16,),
                   ListTileSwitch(
+                    hoverColor: Colors.grey.shade700,
                     value: themeChange.darkTheme,
-                    leading: Icon(Icons.dark_mode),
+                    leading: Icon(Icons.dark_mode, color: Colors.white,),
                     onChanged: (value) {
                       setState(() {
                         themeChange.darkTheme = value;
@@ -76,7 +79,9 @@ class _SideMenuState extends State<SideMenu> {
                     visualDensity: VisualDensity.comfortable,
                     switchType: SwitchType.cupertino,
                     switchActiveColor: Colors.blue,
-                    title: Text('Dark theme'),
+                    title: Text('Dark theme', style: TextStyle(
+                      color: Colors.white
+                    ),),
                   )
                 ],
               ),
@@ -127,7 +132,7 @@ class _SideMenuState extends State<SideMenu> {
     VoidCallback? onClicked,
   }) {
     final color = Colors.white;
-    final hoverColor = Colors.white70;
+    final hoverColor = Colors.grey.shade700;
 
     return ListTile(
       leading: Icon(icon, color: color),
