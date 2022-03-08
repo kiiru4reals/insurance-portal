@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:insurance_portal/constants/color.dart';
 import 'package:insurance_portal/models/vehicle_prospective_models.dart';
 import 'package:insurance_portal/responsive.dart';
+import 'package:insurance_portal/routes/underwriters/add_vehicle_insurer.dart';
 import 'package:insurance_portal/routes/flip_vehicle_client.dart';
+import 'package:insurance_portal/routes/underwriters/underwriter_options.dart';
 import 'package:insurance_portal/side_menu.dart';
 import 'package:insurance_portal/widgets/scrollable_widget.dart';
 
@@ -41,16 +43,20 @@ class _UnderWritersState extends State<UnderWriters> {
                   (Responsive.isMobile(context) ? 2 : 1),
             ),
           ),
-          onPressed: () => Navigator.of(context).pushNamed(FlipVehicleClient.routeName),
+          onPressed: () => Navigator.of(context).pushNamed(SelectUnderwriter.routeName),
           icon: Icon(Icons.person_add),
           label: Text("Add New Underwriter"),
         ),
       ],
     ),
     drawer: SideMenu(),
-    body: Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: ScrollableWidget(child: buildDataTable()),
+    body: Container(
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ScrollableWidget(child: buildDataTable()),
+      ),
     ),
   );
 
