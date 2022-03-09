@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:insurance_portal/constants/color.dart';
+import 'package:insurance_portal/routes/underwriter_details/vehicle_details.dart';
 import 'package:insurance_portal/widgets/scrollable_widget.dart';
 
 class VehicleUnderwriters extends StatefulWidget {
@@ -13,6 +14,9 @@ class VehicleUnderwriters extends StatefulWidget {
 
 class _VehicleUnderwritersState extends State<VehicleUnderwriters> {
 
+  navigateToDetail(DocumentSnapshot post){
+    Navigator.push(context, MaterialPageRoute(builder: (context)=> VehicleInsurerDetails(post: post)));
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,13 +46,16 @@ class _VehicleUnderwritersState extends State<VehicleUnderwriters> {
               itemBuilder: (context, index) {
                 return ListTile(
                   title: Text(list[index]["insurerName"]),
+                  onTap: () => navigateToDetail(list[index])
                 );
               },
               itemCount: list.length,
             );
           }
         },
-      )),
+      ),
+      ),
     );
   }
 }
+
