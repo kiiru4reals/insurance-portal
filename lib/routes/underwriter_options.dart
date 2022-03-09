@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:insurance_portal/constants/color.dart';
-import 'package:insurance_portal/routes/underwriters/add_life_insurer.dart';
-import 'package:insurance_portal/routes/underwriters/add_vehicle_insurer.dart';
+import 'package:insurance_portal/routes/add_underwriters/add_life_insurer.dart';
+import 'package:insurance_portal/routes/add_underwriters/add_vehicle_insurer.dart';
 
 class SelectUnderwriter extends StatefulWidget {
   static const routeName = "/SelectUnderwriter";
