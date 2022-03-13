@@ -1,6 +1,7 @@
 import 'package:insurance_portal/constants/theme_data.dart';
 import 'package:insurance_portal/providers/MenuController.dart';
 import 'package:insurance_portal/providers/dark_theme_provider.dart';
+import 'package:insurance_portal/providers/vehicle_insurer_provider.dart';
 import 'package:insurance_portal/routes/add_underwriters/add_life_insurer.dart';
 import 'package:insurance_portal/routes/add_underwriters/add_vehicle_insurer.dart';
 import 'package:insurance_portal/routes/add_underwriters/vehicle_underwriters.dart';
@@ -68,6 +69,9 @@ class _MyAppState extends State<MyApp> {
                 }),
                 ChangeNotifierProvider(
                   create: (_) => MenuController(),
+                ),
+                ChangeNotifierProvider(
+                  create: (_) => VehicleInsurersProvider(),
                 ),
               ],
               child: Consumer<DarkThemeProvider>(
