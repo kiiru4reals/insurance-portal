@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:insurance_portal/providers/MenuController.dart';
+import 'package:insurance_portal/providers/vehicle_insurer_provider.dart';
 import 'package:insurance_portal/responsive.dart';
 import 'package:insurance_portal/screens/dashboard/dashboard_screen.dart';
 import 'package:provider/provider.dart';
@@ -10,6 +11,8 @@ class MainScreen extends StatelessWidget {
   static const routeName = "/MainScreen";
   @override
   Widget build(BuildContext context) {
+    final vuAttr = Provider.of<VehicleInsurersProvider>(context);
+    vuAttr.fetchInsurer();
     return Scaffold(
       key: context.read<MenuController>().scaffoldKey,
       drawer: SideMenu(),
