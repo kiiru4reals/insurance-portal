@@ -16,6 +16,8 @@ class _SelectUnderwriterState extends State<SelectUnderwriter> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: ColorConsts.bgColor,
+        centerTitle: true,
+        title: Text("Select type"),
       ),
       body: Container(
         child: ListView(

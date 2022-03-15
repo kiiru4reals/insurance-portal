@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:insurance_portal/constants/color.dart';
-import 'package:insurance_portal/routes/add_underwriters/vehicle_underwriters.dart';
+import 'package:insurance_portal/routes/underwriters/life_underwriters.dart';
+import 'package:insurance_portal/routes/underwriters/vehicle_underwriters.dart';
 class UnderWriters extends StatefulWidget {
   const UnderWriters({Key? key}) : super(key: key);
 
@@ -14,6 +15,8 @@ class _UnderWritersState extends State<UnderWriters> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: ColorConsts.bgColor,
+        centerTitle: true,
+        title: Text("Underwriters"),
       ),
       body: Container(
         child: ListView(
@@ -61,7 +64,7 @@ class _UnderWritersState extends State<UnderWriters> {
               ),
             ),
             InkWell(
-              onTap: () => Navigator.of(context).pushNamed(VehicleUnderwriters.routeName),
+              onTap: () => Navigator.of(context).pushNamed(LifeUnderwriters.routeName),
               child: Card(
                 color: Colors.transparent,
                 shadowColor: Colors.black,
