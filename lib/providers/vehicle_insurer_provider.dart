@@ -20,8 +20,8 @@ class VehicleInsurersProvider with ChangeNotifier {
             VehicleInsurer(
                 insurerId: element.get('insurerId'),
                 insurerName: element.get('insurerName'),
-                comprehensiveRate: element.get('comprehensiveRate'),
-                thirdParty: element.get('thirdParty'),
+                comprehensiveRate: double.parse(element.get('comprehensiveRate'),),
+                thirdParty: int.parse(element.get('thirdParty'),)
             ),
         );
       });
