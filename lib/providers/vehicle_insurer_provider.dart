@@ -8,14 +8,13 @@ class VehicleInsurersProvider with ChangeNotifier {
     return [..._vehicleinsurer];
   }
   Future<void> fetchInsurer() async {
-    print('Fetch method is called');
+    // print('Fetch method is called');
     await FirebaseFirestore.instance
         .collection('vehicleInsurers')
         .get()
         .then((QuerySnapshot vehicleInsurerSnapshot) {
       _vehicleinsurer = [];
       vehicleInsurerSnapshot.docs.forEach((element) {
-        // print('element.get(productBrand), ${element.get('productBrand')}');
         _vehicleinsurer.insert(
           0,
             VehicleInsurer(
@@ -27,5 +26,8 @@ class VehicleInsurersProvider with ChangeNotifier {
         );
       });
     });
+  }
+  List<VehicleInsurer> get insurer {
+    return _vehicleinsurer;
   }
 }
