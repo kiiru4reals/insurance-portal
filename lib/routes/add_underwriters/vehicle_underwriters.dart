@@ -1,9 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:insurance_portal/constants/color.dart';
-import 'package:insurance_portal/routes/underwriter_details/vehicle_details.dart';
-import 'package:insurance_portal/widgets/scrollable_widget.dart';
+import 'package:insurance_portal/providers/vehicle_insurer_provider.dart';
+import 'package:insurance_portal/widgets/no_underwriters.dart';
+import 'package:insurance_portal/widgets/vehicle_insurers.dart';
+import 'package:provider/provider.dart';
 
 class VehicleUnderwriters extends StatefulWidget {
   static const routeName = "/VehicleUnderwriters";
@@ -13,49 +13,42 @@ class VehicleUnderwriters extends StatefulWidget {
 }
 
 class _VehicleUnderwritersState extends State<VehicleUnderwriters> {
+  /*Future<void> _getProductsOnRefresh() async {
+    await Provider.of<VehicleInsurersProvider>(context, listen: false)
+        .fetchInsurer();
+    setState(() {});
+  }*/
 
-  navigateToDetail(DocumentSnapshot post){
-    Navigator.push(context, MaterialPageRoute(builder: (context)=> VehicleInsurerDetails(post: post)));
+    @override
+    Widget build(BuildContext context) {
+      final vuAttributes = Provider.of<VehicleInsurersProvider>(context);
+      vuAttributes.fetchInsurer();
+      return vuAttributes.getvehicleinsurer.isEmpty
+          ? Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          backgroundColor: ColorConsts.bgColor,
+          title: Text("No underwriters"),
+        ),
+        body: NoUnderWriters(),
+      )
+          : Scaffold(
+        appBar: AppBar(
+          title: Text(
+              'Total vehicle underwriters: (${vuAttributes.getvehicleinsurer
+                  .length})'),
+        ),
+        body: ListView.builder(
+            itemCount: vuAttributes.getvehicleinsurer.length,
+            itemBuilder: (BuildContext ctx, int index) {
+              return ChangeNotifierProvider.value(
+                value: vuAttributes.getvehicleinsurer[index],
+                child: ShowVehicleInsurers(
+                  insurerId:
+                  vuAttributes.getvehicleinsurer.toString()[index],
+                ),
+              );
+            }),
+      );
+    }
   }
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: ColorConsts.bgColor,
-        centerTitle: true,
-        title: Text("Vehicle insurers"),
-      ),
-      body: Container(
-          child: StreamBuilder<QuerySnapshot>(
-        stream: FirebaseFirestore.instance
-            .collection("Vehicle insurers")
-            .snapshots(),
-        builder:
-            (BuildContext context, AsyncSnapshot<QuerySnapshot> querySnapshot) {
-          if (querySnapshot.hasError)
-            return Center(
-              child: Text("Some error occurred."),
-            );
-          if (querySnapshot.connectionState == ConnectionState.waiting) {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          } else {
-            final list = querySnapshot.data!.docs;
-            return ListView.builder(
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(list[index]["insurerName"]),
-                  onTap: () => navigateToDetail(list[index])
-                );
-              },
-              itemCount: list.length,
-            );
-          }
-        },
-      ),
-      ),
-    );
-  }
-}
-
