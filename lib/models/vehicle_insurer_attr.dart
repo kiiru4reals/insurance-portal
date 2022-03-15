@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class VehicleInsurer with ChangeNotifier {
   final String insurerId;
   final String insurerName;
-  final String comprehensiveRate;
-  final String thirdParty;
+  final double comprehensiveRate;
+  final int thirdParty;
 
   VehicleInsurer(
       {required this.insurerId,
