@@ -52,13 +52,6 @@ class _SelectUnderwriterState extends State<SelectUnderwriter> {
                         ),
                       ),
                       // const SizedBox(height: 8),
-                      /*           Text(
-                          'Parent company website.',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.white,
-                          ),
-                        ),*/
                     ],
                   ),
                 ),
