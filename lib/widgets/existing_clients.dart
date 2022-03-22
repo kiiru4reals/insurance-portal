@@ -3,6 +3,9 @@ import 'package:fluttericon/font_awesome5_icons.dart';
 import 'package:insurance_portal/constants/color.dart';
 import 'package:insurance_portal/models/existing_clients_piechart.dart';
 import 'package:insurance_portal/models/existing_clients_info_card.dart';
+import 'package:insurance_portal/providers/life_provider.dart';
+import 'package:insurance_portal/providers/vehicles_provider.dart';
+import 'package:provider/provider.dart';
 
 class ExistingClients extends StatelessWidget {
   const ExistingClients({
@@ -11,6 +14,12 @@ class ExistingClients extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final vcAttributes = Provider.of<InsuredVehiclesProvider>(context);
+    vcAttributes.fetchCars();
+    final lcAttributes = Provider.of<InsuredLivesProvider>(context);
+    lcAttributes.fetchLifeInsured();
+    int totallifeclients = lcAttributes.getLives.length.toInt();
+    int totalvehicles = vcAttributes.getCars.length.toInt();
     return Container(
       padding: EdgeInsets.all(defaultPadding),
       decoration: BoxDecoration(
@@ -28,23 +37,23 @@ class ExistingClients extends StatelessWidget {
             ),
           ),
           SizedBox(height: defaultPadding),
-          Chart(),
+          // Chart(),
           StorageInfoCard(
             icon: FontAwesome5.car_crash,
             title: "Vehicle insurance",
-            amountOfFiles: "100",
+            amountOfFiles: "$totalvehicles",
             numOfFiles: 78,
           ),
           StorageInfoCard(
             icon: FontAwesome5.heartbeat,
             title: "Life insurance",
-            amountOfFiles: "43",
+            amountOfFiles: "$totallifeclients",
             numOfFiles: 43,
           ),
           StorageInfoCard(
             icon: Icons.sailing,
             title: "Marine Insurance",
-            amountOfFiles: "43",
+            amountOfFiles: "$totalvehicles",
             numOfFiles: 43,
           ),
         ],

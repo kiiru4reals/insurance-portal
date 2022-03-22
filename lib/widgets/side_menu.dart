@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:insurance_portal/constants/color.dart';
 import 'package:insurance_portal/providers/dark_theme_provider.dart';
@@ -15,13 +16,16 @@ class SideMenu extends StatefulWidget {
 class _SideMenuState extends State<SideMenu> {
   final padding = EdgeInsets.symmetric(horizontal: 20);
 
-
   @override
   Widget build(BuildContext context) {
-    final name = 'Sarah Abs';
-    final email = 'sarah@abs.com';
+    final FirebaseAuth _auth = FirebaseAuth.instance;
+    final User? user = _auth.currentUser;
+    final _uname = user!.displayName;
+    final _email = user!.email;
+    final name = _uname;
+    final email = _email;
     final urlImage =
-        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80';
+        'https://cdn1.vectorstock.com/i/thumb-large/62/60/default-avatar-photo-placeholder-profile-image-vector-21666260.jpg';
     final themeChange = Provider.of<DarkThemeProvider>(context);
 
     return Drawer(
@@ -32,11 +36,9 @@ class _SideMenuState extends State<SideMenu> {
           children: <Widget>[
             buildHeader(
               urlImage: urlImage,
-              name: name,
-              email: email,
-              onClicked: () => Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => UserInfo(),
-              )),
+              name: _uname.toString(),
+              email: _email.toString(),
+              onClicked: () {},
             ),
             Container(
               padding: padding,
@@ -50,12 +52,6 @@ class _SideMenuState extends State<SideMenu> {
                   ),
                   const SizedBox(height: 16),
                   buildMenuItem(
-                    text: 'Manage Clients',
-                    icon: Icons.manage_accounts_sharp,
-                    onClicked: () => selectedItem(context, 1),
-                  ),
-                  const SizedBox(height: 16),
-                  buildMenuItem(
                     text: 'Underwriters',
                     icon: Icons.verified,
                     onClicked: () => selectedItem(context, 2),
@@ -66,11 +62,16 @@ class _SideMenuState extends State<SideMenu> {
                     icon: Icons.person,
                     onClicked: () => selectedItem(context, 3),
                   ),
-                  const SizedBox(height: 16,),
+                  const SizedBox(
+                    height: 16,
+                  ),
                   ListTileSwitch(
                     hoverColor: Colors.grey.shade700,
                     value: themeChange.darkTheme,
-                    leading: Icon(Icons.dark_mode, color: Colors.white,),
+                    leading: Icon(
+                      Icons.dark_mode,
+                      color: Colors.white,
+                    ),
                     onChanged: (value) {
                       setState(() {
                         themeChange.darkTheme = value;
@@ -79,9 +80,10 @@ class _SideMenuState extends State<SideMenu> {
                     visualDensity: VisualDensity.comfortable,
                     switchType: SwitchType.cupertino,
                     switchActiveColor: Colors.blue,
-                    title: Text('Dark theme', style: TextStyle(
-                      color: Colors.white
-                    ),),
+                    title: Text(
+                      'Dark theme',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   )
                 ],
               ),
@@ -159,11 +161,6 @@ class _SideMenuState extends State<SideMenu> {
       case 2:
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => UnderWriters(),
-        ));
-        break;
-      case 3:
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => UserInfo(),
         ));
         break;
     }
