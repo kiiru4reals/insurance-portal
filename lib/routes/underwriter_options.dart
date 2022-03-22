@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:insurance_portal/constants/color.dart';
-import 'package:insurance_portal/routes/underwriters/add_life_insurer.dart';
-import 'package:insurance_portal/routes/underwriters/add_vehicle_insurer.dart';
+import 'package:insurance_portal/routes/add_underwriters/add_life_insurer.dart';
+import 'package:insurance_portal/routes/add_underwriters/add_vehicle_insurer.dart';
 
 class SelectUnderwriter extends StatefulWidget {
   static const routeName = "/SelectUnderwriter";
@@ -16,6 +16,8 @@ class _SelectUnderwriterState extends State<SelectUnderwriter> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: ColorConsts.bgColor,
+        centerTitle: true,
+        title: Text("Select type"),
       ),
       body: Container(
         child: ListView(
@@ -50,13 +52,6 @@ class _SelectUnderwriterState extends State<SelectUnderwriter> {
                         ),
                       ),
                       // const SizedBox(height: 8),
-                      /*           Text(
-                          'Parent company website.',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.white,
-                          ),
-                        ),*/
                     ],
                   ),
                 ),

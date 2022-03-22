@@ -54,7 +54,7 @@ class _AddVehicleInsurerState extends State<AddVehicleInsurer> {
           final _uid = user!.uid;
           final insurerId = uuid.v4();
           await FirebaseFirestore.instance
-              .collection('Vehicle insurers')
+              .collection('vehicleInsurers')
               .doc(insurerId)
               .set({
             'insurerId': insurerId,
