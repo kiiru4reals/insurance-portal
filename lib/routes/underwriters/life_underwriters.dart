@@ -16,7 +16,7 @@ class _LifeUnderwritersState extends State<LifeUnderwriters> {
   @override
   Widget build(BuildContext context) {
     final luAttributes = Provider.of<LifeInsurersProvider>(context);
-    luAttributes.fetchInsurer();
+    luAttributes.fetchLifeInsurer();
     return luAttributes.getlifeinsurer.isEmpty
         ? Scaffold(
       appBar: AppBar(
@@ -29,8 +29,7 @@ class _LifeUnderwritersState extends State<LifeUnderwriters> {
         : Scaffold(
       appBar: AppBar(
         title: Text(
-            'Total life insurance packages: (${luAttributes.getlifeinsurer
-                .length})'),
+            'Total life insurance packages: (${luAttributes.getlifeinsurer.length})'),
       ),
       body: ListView.builder(
           itemCount: luAttributes.getlifeinsurer.length,
