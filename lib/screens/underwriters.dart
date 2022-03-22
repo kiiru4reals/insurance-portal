@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:insurance_portal/constants/color.dart';
 import 'package:insurance_portal/routes/underwriters/life_underwriters.dart';
 import 'package:insurance_portal/routes/underwriters/vehicle_underwriters.dart';
-import 'package:insurance_portal/widgets/side_menu.dart';
+import 'package:insurance_portal/side_menu.dart';
 class UnderWriters extends StatefulWidget {
   const UnderWriters({Key? key}) : super(key: key);
 
