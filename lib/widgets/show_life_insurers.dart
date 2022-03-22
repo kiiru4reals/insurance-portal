@@ -6,7 +6,6 @@ class ShowLifeInsurers extends StatefulWidget {
   final String lifeinsurerId;
 
   const ShowLifeInsurers({Key? key, required this.lifeinsurerId}) : super(key: key);
-
   @override
   _ShowLifeInsurersState createState() => _ShowLifeInsurersState();
 }
@@ -30,6 +29,10 @@ class _ShowLifeInsurersState extends State<ShowLifeInsurers> {
                 padding: EdgeInsets.all(16.0),
                 child: Row(
                   children: <Widget>[
+/*                    Container(
+                      height: 80,
+                      child: Image.network(CarAttr.certificateUrl),
+                    ),*/
                     SizedBox(
                       width: 10.0,
                     ),
