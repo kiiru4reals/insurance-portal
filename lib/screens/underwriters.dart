@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:insurance_portal/constants/color.dart';
 import 'package:insurance_portal/routes/underwriters/life_underwriters.dart';
 import 'package:insurance_portal/routes/underwriters/vehicle_underwriters.dart';
+import 'package:insurance_portal/side_menu.dart';
 class UnderWriters extends StatefulWidget {
   const UnderWriters({Key? key}) : super(key: key);
 
@@ -18,6 +19,7 @@ class _UnderWritersState extends State<UnderWriters> {
         centerTitle: true,
         title: Text("Underwriters"),
       ),
+      drawer: SideMenu(),
       body: Container(
         child: ListView(
           scrollDirection: Axis.vertical,
