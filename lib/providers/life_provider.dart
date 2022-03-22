@@ -9,7 +9,7 @@ class InsuredLivesProvider with ChangeNotifier {
     return [..._mylife];
   }
 
-  Future<void> fetchLives() async {
+  Future<void> fetchLifeInsured() async {
     // print('Fetch method is called');
     await FirebaseFirestore.instance
         .collection('InsuredLives')
