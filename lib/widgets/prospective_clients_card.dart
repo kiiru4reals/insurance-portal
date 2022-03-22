@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:insurance_portal/constants/color.dart';
 import 'package:insurance_portal/models/MyFiles.dart';
 import 'package:insurance_portal/responsive.dart';
+import 'package:insurance_portal/routes/clients/life_clients.dart';
+import 'package:insurance_portal/routes/clients/vehicle_clients.dart';
 import 'package:insurance_portal/routes/vehicle_prospective.dart';
 
 import 'file_info_card.dart';
@@ -20,7 +22,7 @@ class ProspectiveClients extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "Prospective Clients",
+              "Clients",
               style: Theme.of(context).textTheme.subtitle1,
             ),
 
@@ -75,12 +77,12 @@ class FileInfoCardGridView extends StatelessWidget {
             children: [
               Ink.image(
                 image: NetworkImage(
-                  'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1327&q=80',
+                  'https://images.unsplash.com/photo-1604238390774-b07b152150b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
                 ),
                 // colorFilter: ColorFilters.greyscale,
                 child: InkWell(
                   hoverColor: Colors.transparent,
-                  onTap: () => Navigator.pushNamed(context, VehicleProspective.routeName),
+                  onTap: () => Navigator.pushNamed(context, VehicleClients.routeName),
                 ),
                 height: 240,
                 fit: BoxFit.cover,
@@ -106,7 +108,7 @@ class FileInfoCardGridView extends StatelessWidget {
             children: [
               Ink.image(
                 image: NetworkImage(
-                  'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1327&q=80',
+                  'https://images.unsplash.com/photo-1604448724898-c1e456c979f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
                 ),
                 // colorFilter: ColorFilters.greyscale,
                 child: InkWell(
@@ -117,7 +119,7 @@ class FileInfoCardGridView extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               Text(
-                'Marine Insurance',
+                'Travel Insurance',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
@@ -137,12 +139,12 @@ class FileInfoCardGridView extends StatelessWidget {
             children: [
               Ink.image(
                 image: NetworkImage(
-                  'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1327&q=80',
+                  'https://images.unsplash.com/photo-1530026405186-ed1f139313f8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
                 ),
                 // colorFilter: ColorFilters.greyscale,
                 child: InkWell(
                   hoverColor: Colors.transparent,
-                  onTap: () => Navigator.pushNamed(context, VehicleProspective.routeName),
+                  onTap: () => Navigator.pushNamed(context, LifeClients.routeName),
                 ),
                 height: 240,
                 fit: BoxFit.cover,
