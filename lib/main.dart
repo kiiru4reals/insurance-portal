@@ -2,9 +2,13 @@ import 'package:insurance_portal/constants/theme_data.dart';
 import 'package:insurance_portal/providers/MenuController.dart';
 import 'package:insurance_portal/providers/dark_theme_provider.dart';
 import 'package:insurance_portal/providers/life_insurer_provider.dart';
+import 'package:insurance_portal/providers/life_provider.dart';
 import 'package:insurance_portal/providers/vehicle_insurer_provider.dart';
+import 'package:insurance_portal/providers/vehicles_provider.dart';
 import 'package:insurance_portal/routes/add_underwriters/add_life_insurer.dart';
 import 'package:insurance_portal/routes/add_underwriters/add_vehicle_insurer.dart';
+import 'package:insurance_portal/routes/clients/life_clients.dart';
+import 'package:insurance_portal/routes/clients/vehicle_clients.dart';
 import 'package:insurance_portal/routes/underwriters/life_underwriters.dart';
 import 'package:insurance_portal/routes/underwriters/vehicle_underwriters.dart';
 import 'package:insurance_portal/routes/flip_vehicle_client.dart';
@@ -78,6 +82,12 @@ class _MyAppState extends State<MyApp> {
                 ChangeNotifierProvider(
                   create: (_) => LifeInsurersProvider(),
                 ),
+                ChangeNotifierProvider(
+                  create: (_) => InsuredVehiclesProvider(),
+                ),
+                ChangeNotifierProvider(
+                  create: (_) => InsuredLivesProvider(),
+                ),
               ],
               child: Consumer<DarkThemeProvider>(
                   builder: (context, themeData, child) {
@@ -97,6 +107,8 @@ class _MyAppState extends State<MyApp> {
                         AddLifeInsurer.routeName: (ctx) => AddLifeInsurer(),
                         VehicleUnderwriters.routeName: (ctx) => VehicleUnderwriters(),
                         LifeUnderwriters.routeName: (ctx) => LifeUnderwriters(),
+                        VehicleClients.routeName: (ctx) => VehicleClients(),
+                        LifeClients.routeName: (ctx) => LifeClients(),
                       },
                     );
                   }));
