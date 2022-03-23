@@ -1,11 +1,10 @@
-import 'package:flutter/cupertino.dart';
+/*
 import 'package:flutter/material.dart';
 import 'package:insurance_portal/constants/color.dart';
 import 'package:insurance_portal/models/user_model.dart';
 import 'package:insurance_portal/screens/edit_profile.dart';
 import 'package:insurance_portal/side_menu.dart';
 import 'package:insurance_portal/widgets/profile_widget.dart';
-
 
 class UserInfo extends StatefulWidget {
   @override
@@ -79,3 +78,4 @@ class _UserInfoState extends State<UserInfo> {
     ),
   );
 }
+*/
