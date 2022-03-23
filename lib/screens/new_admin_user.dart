@@ -122,8 +122,8 @@ class _NewAdminUserState extends State<NewAdminUser> {
                       key: ValueKey('Email address'),
                       focusNode: _emailFocusNode,
                       validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Enter email';
+                        if (value!.isEmpty || !value.contains('@')) {
+                          return 'Enter valid email address';
                         }
                         return null;
                       },
