@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:insurance_portal/constants/color.dart';
 import 'package:insurance_portal/providers/dark_theme_provider.dart';
 import 'package:insurance_portal/screens/main_screen.dart';
+import 'package:insurance_portal/screens/new_admin_user.dart';
 import 'package:insurance_portal/screens/underwriters.dart';
 import 'package:insurance_portal/screens/user.dart';
 import 'package:list_tile_switch/list_tile_switch.dart';
@@ -54,12 +55,18 @@ class _SideMenuState extends State<SideMenu> {
                   buildMenuItem(
                     text: 'Underwriters',
                     icon: Icons.verified,
-                    onClicked: () => selectedItem(context, 2),
+                    onClicked: () => selectedItem(context, 1),
                   ),
-                  const SizedBox(height: 16),
+/*                  const SizedBox(height: 16),
                   buildMenuItem(
                     text: 'Profile',
                     icon: Icons.person,
+                    onClicked: () => selectedItem(context, 2),
+                  ),*/
+                  const SizedBox(height: 16),
+                  buildMenuItem(
+                    text: 'Add new user',
+                    icon: Icons.person_add,
                     onClicked: () => selectedItem(context, 3),
                   ),
                   const SizedBox(
@@ -84,7 +91,16 @@ class _SideMenuState extends State<SideMenu> {
                       'Dark theme',
                       style: TextStyle(color: Colors.white),
                     ),
-                  )
+                  ),
+                  const SizedBox(height: 16),
+                  buildMenuItem(
+                    text: 'Sign out',
+                    icon: Icons.logout,
+                    onClicked: () async {
+                      Navigator.pop(context);
+                      await _auth.signOut();
+                    },
+                  ),
                 ],
               ),
             ),
@@ -155,12 +171,17 @@ class _SideMenuState extends State<SideMenu> {
         break;
       case 1:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => MainScreen(),
+          builder: (context) => UnderWriters(),
         ));
         break;
       case 2:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => UnderWriters(),
+          builder: (context) => MainScreen(),
+        ));
+        break;
+      case 3:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => NewAdminUser(),
         ));
         break;
     }
