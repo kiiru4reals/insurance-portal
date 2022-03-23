@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:insurance_portal/constants/color.dart';
 import 'package:insurance_portal/services/global_methods.dart';
-import 'package:insurance_portal/side_menu.dart';
+import 'package:insurance_portal/widgets/side_menu.dart';
 
 class NewAdminUser extends StatefulWidget {
   const NewAdminUser({Key? key}) : super(key: key);
