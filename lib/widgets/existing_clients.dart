@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttericon/font_awesome5_icons.dart';
 import 'package:insurance_portal/constants/color.dart';
-import 'package:insurance_portal/models/existing_clients_piechart.dart';
 import 'package:insurance_portal/models/existing_clients_info_card.dart';
 import 'package:insurance_portal/providers/life_provider.dart';
 import 'package:insurance_portal/providers/vehicles_provider.dart';
@@ -42,19 +41,19 @@ class ExistingClients extends StatelessWidget {
             icon: FontAwesome5.car_crash,
             title: "Vehicle insurance",
             amountOfFiles: "$totalvehicles",
-            numOfFiles: 78,
+            // numOfFiles: 78,
           ),
           StorageInfoCard(
             icon: FontAwesome5.heartbeat,
             title: "Life insurance",
             amountOfFiles: "$totallifeclients",
-            numOfFiles: 43,
+            // numOfFiles: 43,
           ),
           StorageInfoCard(
             icon: Icons.sailing,
             title: "Marine Insurance",
             amountOfFiles: "$totalvehicles",
-            numOfFiles: 43,
+            // numOfFiles: 43,
           ),
         ],
       ),
