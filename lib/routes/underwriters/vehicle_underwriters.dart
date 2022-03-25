@@ -34,6 +34,7 @@ class _VehicleUnderwritersState extends State<VehicleUnderwriters> {
       )
           : Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           title: Text(
               'Total vehicle underwriters: (${vuAttributes.getvehicleinsurer
                   .length})'),

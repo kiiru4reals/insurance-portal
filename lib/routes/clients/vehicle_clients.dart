@@ -7,7 +7,6 @@ import 'package:provider/provider.dart';
 
 class VehicleClients extends StatefulWidget {
   static const routeName = "/VehicleClients";
-
   @override
   _VehicleClientsState createState() => _VehicleClientsState();
 }
