@@ -1,11 +1,9 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:insurance_portal/services/global_methods.dart';
 import 'package:uuid/uuid.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:insurance_portal/constants/color.dart';
 
 class AddVehicleInsurer extends StatefulWidget {

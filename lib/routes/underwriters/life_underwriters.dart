@@ -28,6 +28,7 @@ class _LifeUnderwritersState extends State<LifeUnderwriters> {
     )
         : Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text(
             'Total life insurance packages: (${luAttributes.getlifeinsurer.length})'),
       ),
