@@ -7,6 +7,7 @@ import 'package:insurance_portal/providers/travel_insurer_provider.dart';
 import 'package:insurance_portal/providers/vehicle_insurer_provider.dart';
 import 'package:insurance_portal/providers/vehicles_provider.dart';
 import 'package:insurance_portal/routes/add_underwriters/add_life_insurer.dart';
+import 'package:insurance_portal/routes/add_underwriters/add_travel_insurer.dart';
 import 'package:insurance_portal/routes/add_underwriters/add_vehicle_insurer.dart';
 import 'package:insurance_portal/routes/clients/life_clients.dart';
 import 'package:insurance_portal/routes/clients/vehicle_clients.dart';
@@ -117,6 +118,7 @@ class _MyAppState extends State<MyApp> {
                         LifeClients.routeName: (ctx) => LifeClients(),
                         VehicleDetails.routeName: (ctx) => VehicleDetails(),
                         TravelUnderwriters.routeName: (ctx) => TravelUnderwriters(),
+                        AddTravelInsurer.routeName: (ctx) => AddTravelInsurer(),
                       },
                     );
                   }));
