@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:insurance_portal/constants/color.dart';
 import 'package:insurance_portal/routes/add_underwriters/add_life_insurer.dart';
+import 'package:insurance_portal/routes/add_underwriters/add_travel_insurer.dart';
 import 'package:insurance_portal/routes/add_underwriters/add_vehicle_insurer.dart';
 
 class SelectUnderwriter extends StatefulWidget {
@@ -88,6 +89,34 @@ class _SelectUnderwriterState extends State<SelectUnderwriter> {
                           color: Colors.white,
                         ),
                       ),*/
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            InkWell(
+              onTap: () => Navigator.of(context).pushNamed(AddTravelInsurer.routeName),
+              child: Card(
+                color: Colors.transparent,
+                shadowColor: Colors.black,
+                clipBehavior: Clip.antiAlias,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.transparent,
+                  ),
+                  padding: EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Travel insurer',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      // const SizedBox(height: 8),
                     ],
                   ),
                 ),
