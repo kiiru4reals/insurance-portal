@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:insurance_portal/constants/color.dart';
 import 'package:insurance_portal/routes/underwriters/life_underwriters.dart';
+import 'package:insurance_portal/routes/underwriters/travel_underwriters.dart';
 import 'package:insurance_portal/routes/underwriters/vehicle_underwriters.dart';
-import 'package:insurance_portal/side_menu.dart';
+import 'package:insurance_portal/widgets/side_menu.dart';
 class UnderWriters extends StatefulWidget {
   const UnderWriters({Key? key}) : super(key: key);
 
@@ -53,13 +54,6 @@ class _UnderWritersState extends State<UnderWriters> {
                         ),
                       ),
                       // const SizedBox(height: 8),
-                      /*           Text(
-                          'Parent company website.',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.white,
-                          ),
-                        ),*/
                     ],
                   ),
                 ),
@@ -82,6 +76,36 @@ class _UnderWritersState extends State<UnderWriters> {
                     children: [
                       Text(
                         'Life Insurance',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      // const SizedBox(height: 8),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+
+            InkWell(
+              onTap: () => Navigator.of(context).pushNamed(TravelUnderwriters.routeName),
+              child: Card(
+                color: Colors.transparent,
+                shadowColor: Colors.black,
+                // elevation: 0,
+                clipBehavior: Clip.antiAlias,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.transparent,
+                  ),
+                  padding: EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Travel insurance',
                         style: TextStyle(
                           fontSize: 20,
                           color: Colors.white,

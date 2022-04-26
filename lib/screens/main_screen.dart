@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:insurance_portal/providers/MenuController.dart';
 import 'package:insurance_portal/providers/life_insurer_provider.dart';
 import 'package:insurance_portal/providers/life_provider.dart';
+import 'package:insurance_portal/providers/travel_insurer_provider.dart';
 import 'package:insurance_portal/providers/vehicle_insurer_provider.dart';
 import 'package:insurance_portal/providers/vehicles_provider.dart';
 import 'package:insurance_portal/responsive.dart';
@@ -22,6 +23,8 @@ class MainScreen extends StatelessWidget {
     carAttr.fetchCars();
     final lcAttributes = Provider.of<InsuredLivesProvider>(context);
     lcAttributes.fetchLifeInsured();
+    final tiAttributes = Provider.of<TravelInsurersProvider>(context);
+    tiAttributes.fetchTravelInsurer();
     return Scaffold(
       key: context.read<MenuController>().scaffoldKey,
       drawer: SideMenu(),

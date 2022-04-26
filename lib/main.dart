@@ -3,13 +3,17 @@ import 'package:insurance_portal/providers/MenuController.dart';
 import 'package:insurance_portal/providers/dark_theme_provider.dart';
 import 'package:insurance_portal/providers/life_insurer_provider.dart';
 import 'package:insurance_portal/providers/life_provider.dart';
+import 'package:insurance_portal/providers/travel_insurer_provider.dart';
 import 'package:insurance_portal/providers/vehicle_insurer_provider.dart';
 import 'package:insurance_portal/providers/vehicles_provider.dart';
 import 'package:insurance_portal/routes/add_underwriters/add_life_insurer.dart';
+import 'package:insurance_portal/routes/add_underwriters/add_travel_insurer.dart';
 import 'package:insurance_portal/routes/add_underwriters/add_vehicle_insurer.dart';
 import 'package:insurance_portal/routes/clients/life_clients.dart';
 import 'package:insurance_portal/routes/clients/vehicle_clients.dart';
+import 'package:insurance_portal/routes/underwriter_details/vehicle_details.dart';
 import 'package:insurance_portal/routes/underwriters/life_underwriters.dart';
+import 'package:insurance_portal/routes/underwriters/travel_underwriters.dart';
 import 'package:insurance_portal/routes/underwriters/vehicle_underwriters.dart';
 import 'package:insurance_portal/routes/flip_vehicle_client.dart';
 import 'package:insurance_portal/routes/underwriter_options.dart';
@@ -88,6 +92,9 @@ class _MyAppState extends State<MyApp> {
                 ChangeNotifierProvider(
                   create: (_) => InsuredLivesProvider(),
                 ),
+                ChangeNotifierProvider(
+                  create: (_) => TravelInsurersProvider(),
+                ),
               ],
               child: Consumer<DarkThemeProvider>(
                   builder: (context, themeData, child) {
@@ -109,6 +116,9 @@ class _MyAppState extends State<MyApp> {
                         LifeUnderwriters.routeName: (ctx) => LifeUnderwriters(),
                         VehicleClients.routeName: (ctx) => VehicleClients(),
                         LifeClients.routeName: (ctx) => LifeClients(),
+                        VehicleDetails.routeName: (ctx) => VehicleDetails(),
+                        TravelUnderwriters.routeName: (ctx) => TravelUnderwriters(),
+                        AddTravelInsurer.routeName: (ctx) => AddTravelInsurer(),
                       },
                     );
                   }));

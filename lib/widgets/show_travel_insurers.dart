@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:insurance_portal/models/vehicle_models.dart';
-import 'package:insurance_portal/routes/underwriter_details/vehicle_details.dart';
+import 'package:insurance_portal/models/travel_insurers_attr.dart';
 import 'package:provider/provider.dart';
 
-class ShowVehicles extends StatefulWidget {
-  final String vehicleId;
-  const ShowVehicles({Key? key, required this.vehicleId}) : super(key: key);
+class ShowTravelInsurers extends StatefulWidget {
+  final String travelinsurerId;
+  const ShowTravelInsurers({Key? key, required this.travelinsurerId}) : super(key: key);
+
   @override
-  _ShowVehiclesState createState() => _ShowVehiclesState();
+  _ShowTravelInsurersState createState() => _ShowTravelInsurersState();
 }
 
-class _ShowVehiclesState extends State<ShowVehicles> {
+class _ShowTravelInsurersState extends State<ShowTravelInsurers> {
   @override
   Widget build(BuildContext context) {
-    final carAttr = Provider.of<Car>(context);
+    final TravelAttr = Provider.of<TravelInsurer>(context);
     return Stack(
       children: <Widget>[
         Container(
@@ -24,8 +24,7 @@ class _ShowVehiclesState extends State<ShowVehicles> {
             borderRadius: BorderRadius.circular(5.0),
             elevation: 3.0,
             child: InkWell(
-              onTap: () => Navigator.pushNamed(context, VehicleDetails.routeName,
-                  arguments: carAttr.vehicleId),
+              onTap: () {},
               child: Container(
                 padding: EdgeInsets.all(16.0),
                 child: Row(
@@ -42,7 +41,7 @@ class _ShowVehiclesState extends State<ShowVehicles> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            carAttr.car_registration,
+                            TravelAttr.packageName,
                             style: TextStyle(
                                 fontSize: 16.0, fontWeight: FontWeight.bold),
                           ),
