@@ -21,14 +21,14 @@ class _VehicleClientsState extends State<VehicleClients> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: ColorConsts.bgColor,
-        title: Text("No underwriters"),
+        title: Text("No vehicle insurance clients"),
       ),
       body: NoClients(),
     )
         : Scaffold(
       appBar: AppBar(
         title: Text(
-            'Total vehicle underwriters: (${vcAttributes.getCars
+            'Total clients: (${vcAttributes.getCars
                 .length})'),
       ),
       body: ListView.builder(
